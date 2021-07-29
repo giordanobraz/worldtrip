@@ -1,24 +1,49 @@
-import { Flex, Image, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Icon as ChakraIcon, Image, Text } from "@chakra-ui/react";
+import { FaCircle } from 'react-icons/fa'
 import { Icon } from ".";
 
 interface TypeProps {
-  icon: Icon
+  icon: Icon,
+  fullScreen: boolean | undefined;
 }
 
-export function Type({ icon }: TypeProps) {
+export function Type({ icon, fullScreen }: TypeProps) {
+
+  if (!fullScreen) {
+    return (
+      <Text
+        fontSize='lg'
+        fontWeight='500'
+        _last={{ margin: ['0 auto', '0'] }}
+      >
+        <ChakraIcon
+          as={FaCircle}
+          fontSize='0.5em'
+          color='yellow.500'
+          mr={2} />
+        {icon.label}
+      </Text>
+    )
+  }
 
   return (
-    <Flex direction="column" align="center" justify="center">
+    <Flex
+      direction='column'
+      justifyContent="center"
+      alignItems='center'
+      width='150px'
+    >
       <Image
         src={process.env.PUBLIC_URL + `/icons/` + icon.icon_name}
-        w={["40px", "40px", "60px", "85px"]}
-        h={["40px", "40px", "60px", "85px"]}
-        mb="6" />
+        maxWidth="85px"
+      />
 
       <Text
-        fontWeight="600"
         color="gray.700"
-        fontSize={["sm", "sm", "md", "xl", "2xl"]}>
+        fontWeight="600"
+        fontSize="1.2em"
+        marginTop={6}
+      >
         {icon.label}
       </Text>
     </Flex>

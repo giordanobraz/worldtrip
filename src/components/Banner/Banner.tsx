@@ -15,7 +15,7 @@ export function Banner() {
                 align="center"
                 w="100%"
                 mx="auto"
-                paddingX={["2em", "2em", "2em", "2em", "2em", "18em"]}
+                paddingX={["2em", "2em", "2em", "10em"]}
             >
                 <div>
                     <Heading

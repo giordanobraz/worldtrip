@@ -1,5 +1,9 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Type } from "./Type";
+
+interface ScreenProps {
+  fullScreen: boolean | undefined;
+}
 
 export interface Icon {
   id: number;
@@ -35,24 +39,26 @@ const Icons: Icon[] = [
   },
 ];
 
-export function Types() {
+export function Types({ fullScreen }: ScreenProps) {
   return (
     <Flex
-      flexFlow="row wrap"
-      justifyContent={["center", "space-between"]}
+      width="100%"
+      maxWidth="1160px"
+      justifyContent='space-between'
       alignItems="center"
-      marginTop={["1em", "1.2em", "1.6em","5em"]}
-      paddingX={["0.8em", "1em", "1.3em", "3em", "10em"]}
+      marginX="auto"
+      marginY={["1em", "5em"]}
+      wrap={fullScreen ? ['wrap', 'nowrap'] : 'wrap'}
+      paddingX={['12', '12', '12', '10']}
     >
       {
         Icons.map(icon => {
           return (
-            <Box key={icon.id}
-              marginX="10px"
-              marginY="10px"
-            >
-              <Type icon={icon} />
-            </Box>
+            <Type
+              key={icon.id}
+              fullScreen={fullScreen}
+              icon={icon}
+            />
           )
         })
       }
