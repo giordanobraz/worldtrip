@@ -14,12 +14,12 @@ export function Home() {
         <Flex
             direction="column"
         >
-            <Header />
+            <Header fullScreen={largeVersion}/>
             <Banner />
             <Types fullScreen={largeVersion} />
             <Center
                 width='100px'
-                marginX='auto'
+                marginX='auto'                
                 borderTopWidth='2px'
                 borderColor='gray.600'
                 marginY={["1.5em", "3.25em"]}

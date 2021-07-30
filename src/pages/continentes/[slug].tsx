@@ -6,13 +6,9 @@ import { Header } from "../../components/Header";
 import { Info } from "./Info";
 //@ts-ignore
 import ReactCountryFlag from "react-country-flag"
-import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { SlideItemDefinition } from "../../components/Slider";
 
-// interface ContinenteProps {
-//     continente: SlideItemDefinition
-// }
 
 export function Continente() {
     const params = useParams();
@@ -24,8 +20,8 @@ export function Continente() {
     });
 
     return (
-        <Box>
-            <Header />
+        <>
+            <Header backLink fullScreen={isWideVersion}/>
             <Box
                 background={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url('${state.continente.imgPath}')`}
                 bgPosition='center'
@@ -115,7 +111,7 @@ export function Continente() {
 
                     <SimpleGrid columns={[1, 4]} spacing={[5, 10]} my={['5', '45px']}>
                         {state.continente.someCities.map((city) => (
-                            <Box w='256px' mx={['auto', '0']}>
+                            <Box key={city.name} width='256px' marginX={['auto', '0']}>
                                 <Image borderTopRadius='4' src={city.image} alt='Londres' w='100%' h='173' objectFit='cover' />
                                 <Flex
                                     justify='space-between'
@@ -148,6 +144,6 @@ export function Continente() {
                     </SimpleGrid>
                 </Box>
             </Box>
-        </Box>
+        </>
     )
 }
