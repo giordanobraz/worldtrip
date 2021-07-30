@@ -37,7 +37,7 @@ export function Banner() {
                     display={['none', 'none',
                         'block']}
                     src={process.env.PUBLIC_URL + '/images/airplane.svg'}
-                    alt="Avião amarelo voando com algumas nuvens ao redor."
+                    alt="Airplane"
                     transform="translateY(48px)"
                     ml="8"
                 />
